@@ -9,9 +9,9 @@ A RESTful API for managing blog posts, user profiles, comments, and follower rel
 * `Follower System`: Follow/unfollow users, view followers/following lists.
   
 ## Project Structure
-*`user`: Manages user accounts and profiles.
-*`post`: Manages blog posts and comments.
-*`api_root`: Provides a central API root endpoint to navigate the API.
+* `user`: Manages user accounts and profiles.
+* `post`: Manages blog posts and comments.
+* `api_root`: Provides a central API root endpoint to navigate the API.
 
 ## Prerequisites
 Python 3.8+
