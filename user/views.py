@@ -68,6 +68,11 @@ class ProfileViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         return Profile.objects.all()
+
+    def retrieve(self, request, pk=None):
+        profile = get_object_or_404(Profile, id=pk)
+        serializer = ProfileSerializer(profile)
+        return Response(serializer.data, status=status.HTTP_200_OK)
     
     def perform_update(self, serializer):
         serializer.save(user=self.request.user)
