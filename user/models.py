@@ -9,7 +9,7 @@ User = get_user_model()
 # Create your models here.
 class Profile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    id_user = models.IntegerField()
+    # id_user = models.IntegerField()
     profileimg = models.ImageField(upload_to='profile_img', blank=True)
     bio = models.TextField(blank=True)
     accentcolor = models.CharField(
