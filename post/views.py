@@ -22,6 +22,11 @@ class PostViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
 
+    def retrieve(self, request, pk=None):
+        post = get_object_or_404(Post, id=pk)
+        serializer = PostSerializer(post)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
     def perform_update(self, serializer):
         if self.request.user != serializer.instance.user:
             raise PermissionDenied("You cannot edit this post")
@@ -54,6 +59,11 @@ class CommentViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+
+    def retrieve(self, request, pk=None):
+        comment = get_object_or_404(Comment, id=pk)
+        serializer = CommentSerializer(comment)
+        return Response(serializer.data, status=status.HTTP_200_OK)
     
     def perform_destroy(self, instance):
         if self.request.user != instance.user:
